@@ -1,0 +1,26 @@
+# Gradle and Minecraft development output
+**/.gradle/
+**/build/
+**/run/
+**/run-data/
+**/logs/
+**/crash-reports/
+**/repo/
+**/mcmodsrepo/
+
+# Local build/download workspace
+.build-tmp/
+.mdk-downloads/
+.tools/
+release/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
