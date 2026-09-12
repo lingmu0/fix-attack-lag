@@ -45,6 +45,24 @@ Forge 1.12.2 embeds the Java 8-compatible Mixin runtime and includes the legacy 
 
 All nine module projects have passed `clean build` in the development environment. No Minecraft client or dedicated server was launched as part of the build verification; test runs should be performed in a clean instance for the relevant loader.
 
+## CurseForge upload from a local terminal
+
+The repository includes `tools/upload-curseforge.ps1`. It reads the token from the user-scoped `CURSEFORGE_UPLOAD_TOKEN` environment variable and never prints or stores the token. It uploads only the seven new ports; the existing Forge 1.20.1 and NeoForge 1.21.1 files are intentionally skipped.
+
+Run a file and metadata check without uploading:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\upload-curseforge.ps1 -DryRun
+```
+
+Upload the seven new files:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\upload-curseforge.ps1
+```
+
+If the command reports a Cloudflare challenge, the API request was blocked before upload; use the logged-in CurseForge web form or run the script from a network where the upload API is allowed.
+
 ## License
 
 The project is released under the MIT License. See [LICENSE](LICENSE).
