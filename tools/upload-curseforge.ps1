@@ -8,16 +8,11 @@ $repoRoot = Split-Path -Parent $PSScriptRoot
 $releaseDir = Join-Path $repoRoot 'release'
 $uploadUri = 'https://minecraft.curseforge.com/api/projects/1297930/upload-file'
 
-# Only the seven new ports are listed here. The existing Forge 1.20.1 and
-# NeoForge 1.21.1 files are already on CurseForge and are intentionally skipped.
+# This incremental upload contains only the two newly added 1.18.2 ports.
+# All other new ports from the previous submission are already under review.
 $uploadItems = @(
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-fabric-1.19.2.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Fabric 1.19.2'; GameVersionNames = @('Client', 'Server', '1.19.2', 'Fabric') }
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-fabric-1.20.1.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Fabric 1.20.1'; GameVersionNames = @('Client', 'Server', '1.20.1', 'Fabric') }
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-fabric-1.21.1.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Fabric 1.21.1'; GameVersionNames = @('Client', 'Server', '1.21.1', 'Fabric') }
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-forge-1.12.2.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Forge 1.12.2'; GameVersionNames = @('Client', 'Server', '1.12.2', 'Forge') }
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-forge-1.16.5.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Forge 1.16.5'; GameVersionNames = @('Client', 'Server', '1.16.5', 'Forge') }
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-forge-1.19.2.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Forge 1.19.2'; GameVersionNames = @('Client', 'Server', '1.19.2', 'Forge') }
-    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-neoforge-26.1.2.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - NeoForge 26.1.2'; GameVersionNames = @('Client', 'Server', '26.1.2', 'NeoForge') }
+    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-fabric-1.18.2.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Fabric 1.18.2'; GameVersionNames = @('Client', 'Server', '1.18.2', 'Fabric') }
+    [pscustomobject]@{ RelativePath = 'fix_attack_lag-1.3.0-forge-1.18.2.jar'; DisplayName = 'Fix Attack Lag 1.3.0 - Forge 1.18.2'; GameVersionNames = @('Client', 'Server', '1.18.2', 'Forge') }
 )
 
 $missing = @(
@@ -62,7 +57,7 @@ try {
 
         try {
             $metadata = [ordered]@{
-                changelog = 'Add cross-loader ports for Fabric, Forge, and NeoForge.'
+                changelog = 'Add Fabric and Forge 1.18.2 compatibility ports.'
                 changelogType = 'markdown'
                 displayName = $item.DisplayName
                 gameVersionNames = $item.GameVersionNames

@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.lingmu.fixattacklag.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinPlayer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
